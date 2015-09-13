@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     @ViewById(R.id.shcomp)
     LinearLayout mShcompLayout;
 
+    long mLastToast = 0;
+
     @AfterViews
     public void afterViews() {
 
@@ -87,7 +90,21 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         Market market = restAdapter.create(Market.class);
-        List<MarketPrice> prices = market.price(id.toString(), time.toString());
+        List<MarketPrice> prices = null;
+
+        try {
+            prices = market.price(id.toString(), time.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (prices == null) {
+            if (System.currentTimeMillis() - mLastToast > 30 * 1000) {
+                makeToast(getString(R.string.no_network));
+                mLastToast = System.currentTimeMillis();
+            }
+            return;
+        }
 
         List<Line> lines = new ArrayList<>();
         List<PointValue> pointValues = new ArrayList<>();
@@ -161,6 +178,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @UiThread
+    public void makeToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
 }
