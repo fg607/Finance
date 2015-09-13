@@ -1,4 +1,12 @@
 language: android
+
+addons:
+    apt:
+        packages:
+        - libgd2-xpm
+        - ia32-libs
+        - ia32-libs-multiarch
+
 android:
    components:
    - platform-tools
@@ -12,8 +20,8 @@ notifications:
   email: false
 
 before_install:
-  - sudo apt-get update -qq
-  - if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch > /dev/null; fi
+
+  - source .travis/env.sh
 
 script:
-  - ./gradlew clean build
+  - bash .travis/build.sh
