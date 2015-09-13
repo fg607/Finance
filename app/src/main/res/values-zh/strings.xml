@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Finance</string>
+    <string name="action_settings">设置</string>
+    <string name="usdcnh">美元汇率(离岸)</string>
+    <string name="usdcny">美元汇率</string>
+    <string name="eurcny">欧元汇率</string>
+    <string name="shcomp">上证指数</string>
+    <string name="one_day">1天</string>
+    <string name="five_year">5年</string>
+    <string name="one_month">1月</string>
+    <string name="one_year">1年</string>
+</resources>

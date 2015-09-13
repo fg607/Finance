@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">Finance</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="usdcnh">USDCNH</string>
+    <string name="usdcny">USDCNY</string>
+    <string name="eurcny">EURCNY</string>
+    <string name="shcomp">SHCOMP</string>
+    <string name="one_month">1 month</string>
+    <string name="one_year">1 year</string>
+    <string name="five_year">5 years</string>
+    <string name="one_day">1 day</string>
 </resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="market_times">
+        <item>@string/one_day</item>
+        <item>@string/one_month</item>
+        <item>@string/one_year</item>
+        <item>@string/five_year</item>
+    </string-array>
+</resources>
